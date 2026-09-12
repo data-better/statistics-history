@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>저작 데이터베이스 — 통계학의 역사</title>
+<meta name="description" content="통계학사 주요 저작 86편 전체 목록. 분야·인물·연도로 검색하고 CSV로 내려받으세요.">
+<meta property="og:title" content="저작 데이터베이스 — 통계학의 역사">
+<meta property="og:description" content="통계학사 주요 저작 86편 전체 목록. 분야·인물·연도로 검색하고 CSV로 내려받으세요.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26'>&#128200;</text></svg>">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header data-header></header>
+<main id="main" class="wrap">
+<div class="wrap">
+  <h1>저작 데이터베이스</h1>
+  <p class="muted" style="max-width:64ch;margin-top:-4px">전체 목록입니다. 머리글을 눌러 정렬하고, 행을 눌러 상세를 엽니다.</p>
+  <div class="tl-toolbar" id="w-toolbar"></div>
+  <div class="table-scroll">
+    <table class="data" id="w-table">
+      <thead><tr>
+        <th data-sort="year" aria-sort="ascending" scope="col">연도</th>
+        <th data-sort="field" scope="col">분야</th>
+        <th data-sort="nameKo" scope="col">인물</th>
+        <th data-sort="workTitle" scope="col">저작</th>
+        <th scope="col">요약</th>
+        <th scope="col">링크</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div id="w-empty" class="empty-state" hidden>조건에 맞는 저작이 없습니다.</div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>통계학의 역사 — 1654 ~ 2015 · 저작 86편 · 인물 72종<br>
+자료: 통계학사 타임라인 자료집 및 Wikipedia 『History of statistics』 ·
+<a href="appendix.html">출처와 제작 노트</a></p>
+</div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+ var SH=window.SH,D=SH.data;
+ var qs=new URLSearchParams(location.search);
+ var st={q:qs.get('q')||'',sort:qs.get('sort')||'year',dir:1,active:{}};
+ D.fields.forEach(function(f){st.active[f.key]=!SH.state.field||SH.state.field===f.key;});
+
+ var bar=document.getElementById('w-toolbar');
+ bar.innerHTML=D.fields.map(function(f){
+   return '<button class="filter-btn f-'+f.slug+'" data-field="'+SH.esc(f.key)+'" aria-pressed="'
+     +(st.active[f.key]?'true':'false')+'">'+SH.esc(f.key)+'</button>';}).join('')
+   +'<button class="btn btn-sm" data-all>전체</button>'
+   +'<input class="search-box" type="search" placeholder="인물·저작·키워드 검색" aria-label="검색" value="'+SH.esc(st.q)+'">'
+   +'<button class="btn btn-sm" data-csv>CSV 내려받기</button>'
+   +'<span class="tl-count" id="w-count"></span>';
+
+ function rows(){
+   return D.works.filter(function(w){return st.active[w.field]&&SH.matches(w,st.q);})
+     .sort(function(a,b){
+       var k=st.sort,av=a[k],bv=b[k];
+       if(k==='year') return (av-bv)*st.dir;
+       return String(av).localeCompare(String(bv),'ko')*st.dir;
+     });
+ }
+ function render(){
+   var list=rows(),tb=document.querySelector('#w-table tbody');
+   tb.innerHTML=list.map(function(w){
+     var links=[];
+     if(w.sourceUrl) links.push('<a href="'+SH.esc(w.sourceUrl)+'" target="_blank" rel="noopener" data-nodecorate>원문↗</a>');
+     if(w.wikiUrl) links.push('<a href="'+SH.esc(w.wikiUrl)+'" target="_blank" rel="noopener" data-nodecorate>위키↗</a>');
+     return '<tr data-id="'+SH.esc(w.id)+'" tabindex="0"><td class="yr">'+w.year+'</td><td>'+SH.chipHTML(w.field)
+       +'</td><td>'+SH.esc(w.nameKo)+'<br><span class="small muted">'+SH.esc(w.nameEn)+'</span></td><td><b>'
+       +SH.esc(w.workTitle)+'</b></td><td class="small">'+SH.esc(w.workDesc)+'</td><td class="small">'
+       +links.join(' ')+'</td></tr>';}).join('');
+   document.getElementById('w-count').textContent=list.length+'편 / 전체 '+D.works.length+'편';
+   document.getElementById('w-empty').hidden=list.length>0;
+   tb.querySelectorAll('tr').forEach(function(tr){
+     function open(){SH.openDetail(SH.byId(tr.getAttribute('data-id')));}
+     tr.addEventListener('click',function(e){if(!e.target.closest('a'))open();});
+     tr.addEventListener('keydown',function(e){if(e.key==='Enter')open();});
+   });
+ }
+ bar.querySelectorAll('[data-field]').forEach(function(b){
+   b.addEventListener('click',function(){
+     var f=b.getAttribute('data-field'); st.active[f]=!st.active[f];
+     b.setAttribute('aria-pressed',st.active[f]?'true':'false'); render();});
+ });
+ bar.querySelector('[data-all]').addEventListener('click',function(){
+   D.fields.forEach(function(f){st.active[f.key]=true;});
+   bar.querySelectorAll('[data-field]').forEach(function(b){b.setAttribute('aria-pressed','true');});
+   render();});
+ var s=bar.querySelector('.search-box'),t;
+ s.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){st.q=s.value.trim();render();},160);});
+ document.querySelectorAll('#w-table th[data-sort]').forEach(function(th){
+   th.addEventListener('click',function(){
+     var k=th.getAttribute('data-sort');
+     st.dir=(st.sort===k)?-st.dir:1; st.sort=k;
+     document.querySelectorAll('#w-table th').forEach(function(o){o.removeAttribute('aria-sort');});
+     th.setAttribute('aria-sort',st.dir>0?'ascending':'descending');
+     render();});
+ });
+ bar.querySelector('[data-csv]').addEventListener('click',function(){
+   var cols=['year','field','nameKo','nameEn','workTitle','workDesc','contribution','sourceUrl','wikiUrl'];
+   var head=['연도','분야','한글 이름','영문 이름','저작명','저작 설명','핵심 기여','원문 URL','위키백과 URL'];
+   function q(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"';}
+   var csv='\uFEFF'+head.map(q).join(',')+'\n'
+     +rows().map(function(w){return cols.map(function(c){return q(w[c]);}).join(',');}).join('\n');
+   var a=document.createElement('a');
+   a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+   a.download='statistics-history-works.csv'; a.click(); URL.revokeObjectURL(a.href);
+ });
+ render();
+ if(qs.get('id')&&SH.byId(qs.get('id'))) SH.openDetail(SH.byId(qs.get('id')),{silent:true});
+})();
+</script>
+</body>
+</html>

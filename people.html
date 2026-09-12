@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인물 색인 — 통계학의 역사</title>
+<meta name="description" content="통계학사에 등장하는 인물·연구팀 72종의 색인.">
+<meta property="og:title" content="인물 색인 — 통계학의 역사">
+<meta property="og:description" content="통계학사에 등장하는 인물·연구팀 72종의 색인.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26'>&#128200;</text></svg>">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header data-header></header>
+<main id="main" class="wrap">
+<div class="wrap">
+  <h1>인물 색인</h1>
+  <p class="muted" style="max-width:64ch;margin-top:-4px">공저 항목은 원본 표기를 그대로 두었습니다.
+  검색에서는 개별 이름으로도 찾을 수 있습니다.</p>
+  <div class="tl-toolbar" id="p-toolbar"></div>
+  <div id="p-list" class="grid grid-3"></div>
+  <div id="p-empty" class="empty-state" hidden>조건에 맞는 인물이 없습니다.</div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>통계학의 역사 — 1654 ~ 2015 · 저작 86편 · 인물 72종<br>
+자료: 통계학사 타임라인 자료집 및 Wikipedia 『History of statistics』 ·
+<a href="appendix.html">출처와 제작 노트</a></p>
+</div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+ var SH=window.SH,D=SH.data,st={q:'',sort:'year'};
+ var bar=document.getElementById('p-toolbar');
+ bar.innerHTML='<button class="btn btn-sm" data-sort="year" aria-pressed="true">연도순</button>'
+  +'<button class="btn btn-sm" data-sort="name" aria-pressed="false">가나다순</button>'
+  +'<input class="search-box" type="search" placeholder="이름 검색" aria-label="인물 검색">'
+  +'<span class="tl-count" id="p-count"></span>';
+ function render(){
+   var list=D.people.filter(function(p){
+     if(!st.q) return true;
+     var t=(p.nameKo+' '+p.nameEn).toLowerCase();
+     return t.indexOf(st.q.toLowerCase())>=0;
+   });
+   if(SH.state.field) list=list.filter(function(p){return p.fields.indexOf(SH.state.field)>=0;});
+   list=list.slice().sort(function(a,b){
+     return st.sort==='year' ? (a.from-b.from)||a.nameEn.localeCompare(b.nameEn)
+                             : a.nameKo.localeCompare(b.nameKo,'ko');});
+   document.getElementById('p-list').innerHTML=list.map(function(p){
+     var chips=p.fields.map(function(f){return SH.chipHTML(f);}).join(' ');
+     var span=p.from===p.to?p.from:(p.from+'–'+p.to);
+     return '<div class="card"><p style="margin:0 0 2px;font-weight:700">'+SH.esc(p.nameKo)+'</p>'
+      +'<p class="small muted" style="margin:0 0 8px">'+SH.esc(p.nameEn)+'</p>'
+      +'<p style="margin:0 0 8px">'+chips+'</p>'
+      +'<p class="small muted" style="margin:0">'+span+' · 저작 '+p.count+'편</p>'
+      +'<p style="margin:10px 0 0"><a class="btn btn-sm" href="timeline.html?id='+encodeURIComponent(p.works[0])+'">타임라인에서 보기 →</a></p></div>';
+   }).join('');
+   document.getElementById('p-count').textContent=list.length+'명 / 전체 '+D.people.length+'명';
+   document.getElementById('p-empty').hidden=list.length>0;
+ }
+ bar.querySelectorAll('[data-sort]').forEach(function(b){
+   b.addEventListener('click',function(){
+     st.sort=b.getAttribute('data-sort');
+     bar.querySelectorAll('[data-sort]').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
+     render();});
+ });
+ var s=bar.querySelector('.search-box'),t;
+ s.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){st.q=s.value.trim();render();},150);});
+ render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>통계학의 역사 — 확률에서 데이터과학까지</title>
+<meta name="description" content="1654년부터 2015년까지 86편의 논문과 저서로 따라가는 통계학의 역사. 분야를 골라 타임라인과 이야기로 탐색하세요.">
+<meta property="og:title" content="통계학의 역사 — 확률에서 데이터과학까지">
+<meta property="og:description" content="1654년부터 2015년까지 86편의 논문과 저서로 따라가는 통계학의 역사. 분야를 골라 타임라인과 이야기로 탐색하세요.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26'>&#128200;</text></svg>">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header data-header></header>
+<main id="main" class="wrap">
+<div class="wrap">
+  <div class="prose" style="max-width:none">
+    <p class="small muted" style="margin-bottom:6px">A History of Statistics</p>
+    <h1 style="font-size:36px">확률에서 데이터과학까지,<br>통계학의 370년</h1>
+    <p class="lede" style="max-width:56ch">도박판의 분배 문제에서 시작해 딥러닝에 이르기까지.
+    86편의 논문과 저서로 따라가는 통계학의 역사입니다.</p>
+    <div class="stat-row">
+      <div class="stat"><b>370년</b><span>1654 ~ 2015</span></div>
+      <div class="stat"><b>86편</b><span>주요 논문·저서</span></div>
+      <div class="stat"><b>72명</b><span>인물·연구팀</span></div>
+      <div class="stat"><b>5개</b><span>분야</span></div>
+    </div>
+  </div>
+
+  <section id="fields" style="margin-top:38px">
+    <h2 style="margin-top:0">어디서부터 볼까요?</h2>
+    <p class="muted" style="max-width:60ch;margin-top:-4px">관심 분야를 고르면 타임라인과 이야기가 그 분야를 중심으로 열립니다.
+    고르지 않아도 모든 기능을 쓸 수 있습니다.</p>
+    <div class="grid grid-fields" style="margin-top:18px">
+      <button class="field-card f-prob" data-field="확률" aria-pressed="false">
+        <h3>확률</h3>
+        <p class="tagline">우연을 수로 바꾼 사람들</p>
+        <div class="meta"><span>저작 7편</span><span>1654 ~ 1933</span></div>
+        <div class="leads">파스칼 · 베르누이 · 라플라스 · 콜모고로프</div>
+      </button>
+      <button class="field-card f-infer" data-field="추정·검정" aria-pressed="false">
+        <h3>추정·검정</h3>
+        <p class="tagline">데이터에서 모수를 캐내는 기술</p>
+        <div class="meta"><span>저작 31편</span><span>1805 ~ 1998</span></div>
+        <div class="leads">가우스 · 골턴 · 피어슨 · 피셔 · 네이만</div>
+      </button>
+      <button class="field-card f-bayes" data-field="베이즈" aria-pressed="false">
+        <h3>베이즈</h3>
+        <p class="tagline">믿음을 갱신하는 통계학</p>
+        <div class="meta"><span>저작 14편</span><span>1763 ~ 1995</span></div>
+        <div class="leads">베이즈 · 제프리스 · 새비지 · 겔먼</div>
+      </button>
+      <button class="field-card f-applied" data-field="응용" aria-pressed="false">
+        <h3>응용</h3>
+        <p class="tagline">통계가 세상을 바꾼 현장</p>
+        <div class="meta"><span>저작 11편</span><span>1662 ~ 1986</span></div>
+        <div class="leads">그랜트 · 나이팅게일 · 스노 · 데밍</div>
+      </button>
+      <button class="field-card f-ds" data-field="데이터과학" aria-pressed="false">
+        <h3>데이터과학</h3>
+        <p class="tagline">계산이 통계를 다시 쓰다</p>
+        <div class="meta"><span>저작 23편</span><span>1962 ~ 2015</span></div>
+        <div class="leads">튜키 · 에프론 · 브라이먼 · 힌턴</div>
+      </button>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="timeline.html" data-nodecorate id="btn-all">전체 보기 — 5개 분야를 모두</a>
+      <a class="btn" href="story/index.html">처음부터 읽기</a>
+    </div>
+    <div id="field-panel" hidden></div>
+  </section>
+
+  <section style="margin-top:56px">
+    <h2>한눈에 보기 — 무게중심의 이동</h2>
+    <p class="muted small" style="max-width:60ch;margin-top:-6px">25년 구간마다 분야별 저작 수입니다.
+    확률에서 추정·검정으로, 다시 데이터과학으로 옮겨가는 흐름이 보입니다.</p>
+    <div class="card" style="padding:14px"><div id="density"></div></div>
+  </section>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>통계학의 역사 — 1654 ~ 2015 · 저작 86편 · 인물 72종<br>
+자료: 통계학사 타임라인 자료집 및 Wikipedia 『History of statistics』 ·
+<a href="appendix.html">출처와 제작 노트</a></p>
+</div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+ var SH=window.SH, D=SH.data, panel=document.getElementById('field-panel');
+ var cnt={}; D.works.forEach(function(w){cnt[w.field]=(cnt[w.field]||0)+1;});
+
+ document.querySelectorAll('.field-card').forEach(function(card){
+   var key=card.getAttribute('data-field');
+   if(SH.state.field===key){card.setAttribute('aria-pressed','true');show(key);}
+   card.addEventListener('click',function(){
+     var on=card.getAttribute('aria-pressed')==='true';
+     document.querySelectorAll('.field-card').forEach(function(c){c.setAttribute('aria-pressed','false');});
+     if(on){panel.hidden=true;panel.innerHTML='';SH.setField(null);return;}
+     card.setAttribute('aria-pressed','true');
+     show(key);
+     var p=new URLSearchParams(location.search); p.set('field',key);
+     history.replaceState(null,'',location.pathname+'?'+p.toString());
+     SH.state.field=key; SH.ss('field',key);
+     panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+   });
+ });
+
+ function show(key){
+   var f=SH.fieldByKey[key];
+   var list=D.works.filter(function(w){return w.field===key;}).sort(function(a,b){
+     return (b.weight-a.weight)||(a.year-b.year);}).slice(0,5)
+     .sort(function(a,b){return a.year-b.year;});
+   var chaps=f.chapters.map(function(n){
+     var c=SH.chapterOf(n);
+     return '<a class="btn btn-sm" href="story/'+c.file+'">'+n+'장 '+SH.esc(c.title)+' →</a>';}).join('');
+   panel.className='panel f-'+f.slug;
+   panel.innerHTML='<h3 style="margin-top:0;color:var(--fc)">'+SH.esc(f.key)+' — '+SH.esc(f.tag)+'</h3>'
+     +'<p style="max-width:62ch">'+SH.esc(f.blurb)+'</p>'
+     +'<p class="small muted">이 분야 저작 '+cnt[key]+'편 · 대표 인물 '+SH.esc(f.leads.join(', '))+'</p>'
+     +'<div class="links" style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0">'+chaps
+     +'<a class="btn btn-sm btn-primary" href="timeline.html?field='+encodeURIComponent(key)+'">이 분야로 타임라인 열기 →</a></div>'
+     +'<p class="lbl small muted" style="margin-bottom:6px">대표 저작</p><ul class="work-list">'
+     +list.map(function(w){return '<li><a class="work-item f-'+f.slug+'" href="timeline.html?id='+encodeURIComponent(w.id)+'">'
+       +'<span class="yr">'+w.year+'</span><span><span class="ti">'+SH.esc(w.workTitle)+'</span>'
+       +'<span class="wh">'+SH.esc(w.nameKo)+' · '+SH.esc(w.contribution)+'</span></span></a></li>';}).join('')
+     +'</ul>';
+   panel.hidden=false;
+ }
+
+ document.getElementById('btn-all').addEventListener('click',function(e){
+   e.preventDefault(); SH.ss('field',null); location.href='timeline.html?field=';
+ });
+
+ // 밀도 그래프 (적층 막대, 25년 구간)
+ (function(){
+   var host=document.getElementById('density');
+   var bins=[],start=1650;
+   for(var y=start;y<2025;y+=25) bins.push({y0:y,y1:y+25,v:{}});
+   D.works.forEach(function(w){
+     var b=bins[Math.floor((w.year-start)/25)]; if(b) b.v[w.field]=(b.v[w.field]||0)+1;});
+   var max=Math.max.apply(null,bins.map(function(b){
+     return D.fields.reduce(function(s,f){return s+(b.v[f.key]||0);},0);}));
+   var W=920,H=190,padB=26,padT=8,bw=W/bins.length;
+   var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" height="'+H+'" role="img" aria-label="25년 구간별 분야별 저작 수 막대그래프">';
+   bins.forEach(function(b,i){
+     var yy=H-padB, x=i*bw+3, w=bw-6;
+     D.fields.forEach(function(f){
+       var c=b.v[f.key]||0; if(!c)return;
+       var h=(c/max)*(H-padB-padT);
+       yy-=h;
+       svg+='<rect x="'+x+'" y="'+yy+'" width="'+w+'" height="'+h+'" fill="var(--f-'+f.slug+')" opacity=".88"><title>'
+         +b.y0+'–'+(b.y1-1)+' '+f.key+' '+c+'편</title></rect>';
+     });
+     if(i%2===0) svg+='<text x="'+(x+w/2)+'" y="'+(H-8)+'" text-anchor="middle" font-size="11" fill="var(--ink-soft)">'+b.y0+'</text>';
+   });
+   svg+='</svg><p class="small muted" style="margin:8px 0 0;display:flex;gap:12px;flex-wrap:wrap">'
+     +D.fields.map(function(f){return '<span class="chip f-'+f.slug+' '+({prob:'',infer:'sq',bayes:'tri',applied:'dia',ds:'hex'}[f.slug])+'">'+f.key+'</span>';}).join('')+'</p>';
+   host.innerHTML=svg;
+ })();
+})();
+</script>
+</body>
+</html>

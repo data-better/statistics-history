@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2장 오차와 최소제곱 — 통계학의 역사</title>
+<meta name="description" content="오차를 없애려는 노력 대신 오차를 모형화하려는 발상의 전환에서 근대 추정 이론이 나왔다.">
+<meta property="og:title" content="2장 오차와 최소제곱 — 통계학의 역사">
+<meta property="og:description" content="오차를 없애려는 노력 대신 오차를 모형화하려는 발상의 전환에서 근대 추정 이론이 나왔다.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26'>&#128200;</text></svg>">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header data-header></header>
+<main id="main" class="wrap">
+<div class="progress-bar" data-progress></div>
+<div class="wrap">
+ <div class="story-layout">
+  <article class="prose">
+    <div class="chapter-meta">
+      <span class="chapter-dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+      <span>2장 / 전체 8장</span>
+      <span>1755 ~ 1840년대</span>
+      <span>약 4분</span>
+    </div>
+    <h1>오차와 최소제곱</h1>
+    <div class="summary-box"><dl><dt>다루는 것</dt><dd>같은 것을 재도 매번 다른 값이 나올 때, 어느 값을 믿을 것인가</dd><dt>핵심 인물</dt><dd>토머스 심프슨 · 피에르시몽 라플라스 · 르장드르 · 카를 프리드리히 가우스</dd><dt>한 문장 결론</dt><dd>오차를 없애려는 노력 대신 오차를 모형화하려는 발상의 전환에서 근대 추정 이론이 나왔다.</dd></dl></div>
+<h2 id="s1">관측은 왜 어긋나는가</h2>
+<p>18세기 천문학자에게 가장 성가신 문제는 측정이었다. 같은 별의 위치를 같은 밤에 여러 번 재도 값이 조금씩 달랐다. 당시의 상식은 가장 정확해 보이는 관측 하나를 고르는 것이었다. 여러 값을 평균 내는 일은 오히려 좋은 관측을 나쁜 관측으로 오염시키는 짓으로 여겨지기도 했다.</p>
+<p>1755년 토머스 심프슨은 이 상식에 정면으로 반박했다. 오차가 어떤 분포를 따른다고 가정하면, 여러 관측의 평균이 개별 관측보다 참값에 가까울 확률이 더 높음을 보인 것이다. 오차를 제거 대상이 아니라 <b>확률적으로 기술할 대상</b>으로 본 순간이었다.</p>
+<p>그 뒤로 오차분포의 형태를 두고 여러 제안이 쏟아졌다. 램버트는 반원형을, 라그랑주는 포물선형을, 라플라스는 지수함수형을 제안했다. 보스코비치는 제곱 대신 절댓값 오차의 합을 최소화하자고 했는데, 이는 오늘날 중앙값 회귀에 해당하는 발상이었다. 답은 아직 하나로 모이지 않았다.</p>
+<h2 id="s2">최소제곱법과 우선권 논쟁</h2>
+<p>1805년 아드리앵마리 르장드르가 혜성 궤도를 구하는 저작의 부록에서 해법을 내놓는다. 관측과 모형의 차이를 제곱해 모두 더한 값이 가장 작아지도록 미지수를 정하라 — <span class="term" title="잔차 제곱합을 최소화하는 추정 방법">최소제곱법</span>이다. 계산이 기계적이고 해가 유일하다는 점에서 즉시 실용적 표준이 되었다.</p>
+<p>4년 뒤 가우스는 『천체운동론』에서 같은 방법을 제시하면서 자신은 1795년부터 써왔다고 밝혔다. 실제로 그는 1801년 소행성 세레스의 재발견 예측에 이 방법을 썼고 결과는 극적으로 들어맞았다. 우선권 논쟁은 당대에 격렬했고 지금도 완전히 정리되지 않았다. 다만 두 사람이 한 일은 성격이 달랐다. 르장드르는 계산법을 제시했고, 가우스는 <b>왜 하필 제곱인지</b>를 확률로 설명했다.</p>
+<p>가우스의 논증은 이렇다. 관측오차가 어떤 분포를 따를 때 산술평균이 최선의 추정이 된다고 요구하면, 그 오차분포는 오늘날 정규분포라 부르는 형태여야 한다. 그리고 오차가 정규분포를 따른다면 최소제곱 해가 곧 가장 그럴듯한 값이 된다. 방법과 분포가 서로를 정당화하는 구조다.</p>
+<h2 id="s3">라플라스가 묶어낸 것</h2>
+<p>1812년 라플라스의 『확률의 해석적 이론』은 흩어져 있던 조각들을 하나의 체계로 묶었다. 그는 <span class="term" title="독립적인 확률변수의 합이 정규분포에 가까워진다는 정리">중심극한정리</span>를 정식화해, 수많은 작은 오차가 누적되면 그 합이 정규분포에 가까워짐을 보였다. 가우스가 요청했던 정규분포에 이론적 근거가 생긴 것이다.</p>
+<p>이로써 오차론은 완결된 모습을 갖춘다. 오차는 정규분포를 따르고, 정규분포를 가정하면 최소제곱이 최선이며, 중심극한정리가 정규분포를 정당화한다. 1815년 베셀이 도입한 '확률오차'처럼 추정의 정밀도를 수치로 보고하는 관행도 이 시기에 자리 잡았다. 19세기 내내 물리학과 천문학은 이 틀 위에서 움직였다.</p>
+
+<details class="deep"><summary>왜 절댓값이 아니라 제곱인가</summary><div><p>절댓값 오차의 합을 최소화하면 중앙값이, 제곱합을 최소화하면 평균이 나온다. 보스코비치가 먼저 제안한 것은 절댓값 쪽이었고, 이상값에 강건하다는 장점도 있었다.</p><p>그럼에도 제곱이 표준이 된 이유는 셋이다. ① 미분 가능해 해석적 해가 나온다(정규방정식). ② 정규분포 가정 아래 최대가능도추정과 일치한다. ③ 분산의 분해가 깔끔해 뒤에 분산분석으로 이어진다.</p><p>20세기 후반 로버스트 통계학은 ①의 편의를 일부 포기하고 이상값에 강한 추정으로 돌아간다. 계산력이 충분해진 뒤의 선택이다.</p></div></details>
+
+    <div class="takeaways"><h2 style="margin-top:0">핵심 정리</h2><ol><li>오차를 제거할 결함이 아니라 확률분포로 기술할 대상으로 본 것이 전환점이었다.</li><li>최소제곱법은 르장드르가 먼저 출판했고, 가우스는 그것이 왜 최선인지를 정규분포로 설명했다.</li><li>중심극한정리가 정규분포에 근거를 제공하면서 오차론이 하나의 체계로 닫혔다.</li></ol></div>
+
+  <h2 id="works">이 장의 저작 <span data-chapter-works-count>3</span>편</h2>
+  <p class="small muted" style="margin-top:-6px">항목을 누르면 타임라인에서 상세가 열립니다.
+  분야를 선택해 두면 그 분야가 먼저 표시됩니다.</p>
+  <ul class="work-list" data-chapter-works="2"></ul>
+<div class="footnotes"><ol><li>르장드르·가우스의 우선권 논쟁에 대해서는 양측 주장이 모두 기록으로 남아 있다. 이 장은 어느 쪽 손도 들지 않는다.</li></ol></div>
+<p class="next-teaser">다음 장에서는 이 정규분포가 천체를 떠나 사람에게 적용된다. 그리고 통계는 처음으로 그림이 된다.</p>
+<div class="chapter-nav"><a href="01-probability.html">← 1장 확률의 탄생</a><a href="index.html">목차</a><a href="03-society.html">3장 사회를 측정하다 →</a></div>
+  </article>
+  <nav class="toc" aria-label="이 장의 목차">
+    <p class="toc-title">이 장의 차례</p>
+    <ul><li><a href="#s1">관측은 왜 어긋나는가</a></li><li><a href="#s2">최소제곱법과 우선권 논쟁</a></li><li><a href="#s3">라플라스가 묶어낸 것</a></li><li><a href="#works">이 장의 저작</a></li></ul>
+  </nav>
+ </div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>통계학의 역사 — 1654 ~ 2015 · 저작 86편 · 인물 72종<br>
+자료: 통계학사 타임라인 자료집 및 Wikipedia 『History of statistics』 ·
+<a href="../appendix.html">출처와 제작 노트</a></p>
+</div></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/site.js"></script>
+
+</body>
+</html>

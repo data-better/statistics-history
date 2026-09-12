@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>타임라인 — 통계학의 역사</title>
+<meta name="description" content="1654~2015년 통계학 주요 저작을 분야별 다섯 줄로 배치한 인터랙티브 연대표.">
+<meta property="og:title" content="타임라인 — 통계학의 역사">
+<meta property="og:description" content="1654~2015년 통계학 주요 저작을 분야별 다섯 줄로 배치한 인터랙티브 연대표.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26'>&#128200;</text></svg>">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header data-header></header>
+<main id="main" class="wrap">
+<div class="wrap">
+  <h1>타임라인</h1>
+  <p class="muted" style="max-width:64ch;margin-top:-4px">분야별 다섯 개 줄 위에 저작을 연도순으로 놓았습니다.
+  점을 누르면 상세가 열리고, 휠이나 ＋/－ 로 확대하면 더 많은 이름이 나타납니다.</p>
+  <div class="tl-toolbar" id="tl-toolbar"></div>
+  <div class="tl-stage" id="tl-stage"></div>
+  <div id="tl-empty" class="empty-state" hidden>
+    조건에 맞는 저작이 없습니다. 검색어를 지우거나 분야를 다시 켜 보세요.
+  </div>
+  <p class="small muted" style="margin-top:14px">
+    가로축은 기본적으로 구간별 가변 축입니다 — 저작이 희박한 18세기와 밀집한 20세기를 함께 보기 위해서입니다.
+    실제 연도 간격이 필요하면 「실제 연도 비례」를 누르세요.
+    키보드로는 Tab 으로 점 사이를 이동하고 ←→ 로 같은 줄, ↑↓ 로 다른 줄로 옮깁니다.
+  </p>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>통계학의 역사 — 1654 ~ 2015 · 저작 86편 · 인물 72종<br>
+자료: 통계학사 타임라인 자료집 및 Wikipedia 『History of statistics』 ·
+<a href="appendix.html">출처와 제작 노트</a></p>
+</div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/timeline.js"></script>
+</body>
+</html>

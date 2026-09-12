@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이야기 — 통계학의 역사</title>
+<meta name="description" content="통계학 370년을 여덟 개 장으로 나눈 읽기. 각 장 4~7분.">
+<meta property="og:title" content="이야기 — 통계학의 역사">
+<meta property="og:description" content="통계학 370년을 여덟 개 장으로 나눈 읽기. 각 장 4~7분.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26'>&#128200;</text></svg>">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header data-header></header>
+<main id="main" class="wrap">
+<div class="wrap">
+  <h1>이야기</h1>
+  <p class="lede" style="max-width:60ch">고대의 인구조사부터 딥러닝까지, 여덟 개 장으로 나누어 읽습니다.
+  각 장은 4~7분 분량이고 전공 수준의 내용은 접어 두었습니다.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 30px">
+    <a class="btn btn-primary" href="00-prehistory.html">처음부터 읽기</a>
+    <button class="btn" id="btn-summary" aria-expanded="false">요약만 훑기</button>
+  </div>
+  <section id="summary-mode" hidden class="card" style="margin-bottom:30px">
+    <h2 style="margin-top:0;font-size:18px">여덟 장 요약</h2><div style="padding:14px 0;border-bottom:1px solid var(--line)">
+      <p class="small muted" style="margin:0 0 3px">0장 · 고대 ~ 1653</p>
+      <p style="margin:0 0 4px;font-weight:700">세기를 센 사람들</p>
+      <p style="margin:0;color:var(--ink-mid)">통계학은 수학이 아니라 행정에서 태어났다. 국가가 스스로를 세는 일이 먼저였고, 그것을 수학으로 다루는 일은 한참 뒤였다.</p></div><div style="padding:14px 0;border-bottom:1px solid var(--line)">
+      <p class="small muted" style="margin:0 0 3px">1장 · 1654 ~ 1763</p>
+      <p style="margin:0 0 4px;font-weight:700">확률의 탄생</p>
+      <p style="margin:0;color:var(--ink-mid)">우연은 계산할 수 있다는 발견과, 대량의 기록에서 규칙이 나온다는 발견이 거의 동시에 일어났다.</p></div><div style="padding:14px 0;border-bottom:1px solid var(--line)">
+      <p class="small muted" style="margin:0 0 3px">2장 · 1755 ~ 1840년대</p>
+      <p style="margin:0 0 4px;font-weight:700">오차와 최소제곱</p>
+      <p style="margin:0;color:var(--ink-mid)">오차를 없애려는 노력 대신 오차를 모형화하려는 발상의 전환에서 근대 추정 이론이 나왔다.</p></div><div style="padding:14px 0;border-bottom:1px solid var(--line)">
+      <p class="small muted" style="margin:0 0 3px">3장 · 1786 ~ 1880년대</p>
+      <p style="margin:0 0 4px;font-weight:700">사회를 측정하다</p>
+      <p style="margin:0;color:var(--ink-mid)">이 시기에 통계는 두 가지를 얻었다. 사회를 설명하겠다는 야심과, 설득을 위한 시각 언어다.</p></div><div style="padding:14px 0;border-bottom:1px solid var(--line)">
+      <p class="small muted" style="margin:0 0 3px">4장 · 1880년대 ~ 1950년대</p>
+      <p style="margin:0 0 4px;font-weight:700">현대 통계학의 3파</p>
+      <p style="margin:0;color:var(--ink-mid)">세 번의 물결을 거치며 오늘날 교과서에 실린 거의 모든 개념이 이 시기에 만들어졌다.</p></div><div style="padding:14px 0;border-bottom:1px solid var(--line)">
+      <p class="small muted" style="margin:0 0 3px">5장 · 1950년대 ~ 1990년대</p>
+      <p style="margin:0 0 4px;font-weight:700">계산·비모수·베이즈의 부흥</p>
+      <p style="margin:0;color:var(--ink-mid)">이론으로 풀 수 없던 문제를 계산이 풀기 시작하자, 오래 밀려나 있던 베이즈가 돌아왔다.</p></div><div style="padding:14px 0;border-bottom:1px solid var(--line)">
+      <p class="small muted" style="margin:0 0 3px">6장 · 1984 ~ 2015</p>
+      <p style="margin:0 0 4px;font-weight:700">통계적 학습과 데이터과학</p>
+      <p style="margin:0;color:var(--ink-mid)">설명하는 모형과 맞히는 알고리즘 사이의 긴장이 오늘날 데이터 과학의 지형을 만들었다.</p></div><div style="padding:14px 0;border-bottom:1px solid var(--line)">
+      <p class="small muted" style="margin:0 0 3px">7장 · 2015 ~</p>
+      <p style="margin:0 0 4px;font-weight:700">에필로그 — 2015년 이후, 남은 질문</p>
+      <p style="margin:0;color:var(--ink-mid)">방법이 늘어날수록 '이 수치를 믿어도 되는가'라는 오래된 질문이 더 중요해졌다.</p></div>
+  </section>
+  <div class="grid grid-2">
+    <a class="card" href="00-prehistory.html" data-chapter="0" style="text-decoration:none;color:inherit;display:block">
+      <p class="small muted" style="margin:0 0 4px">0장 · 고대 ~ 1653 · 약 6분</p>
+      <h3 style="margin:0 0 6px">세기를 센 사람들</h3>
+      <p class="small" style="margin:0;color:var(--ink-mid)">통계학은 수학이 아니라 행정에서 태어났다. 국가가 스스로를 세는 일이 먼저였고, 그것을 수학으로 다루는 일은 한참 뒤였다.</p>
+      <p class="small muted" style="margin:10px 0 0">연결된 저작 0편<span data-rec hidden></span></p>
+    </a>
+    <a class="card" href="01-probability.html" data-chapter="1" style="text-decoration:none;color:inherit;display:block">
+      <p class="small muted" style="margin:0 0 4px">1장 · 1654 ~ 1763 · 약 4분</p>
+      <h3 style="margin:0 0 6px">확률의 탄생</h3>
+      <p class="small" style="margin:0;color:var(--ink-mid)">우연은 계산할 수 있다는 발견과, 대량의 기록에서 규칙이 나온다는 발견이 거의 동시에 일어났다.</p>
+      <p class="small muted" style="margin:10px 0 0">연결된 저작 6편<span data-rec hidden></span></p>
+    </a>
+    <a class="card" href="02-errors.html" data-chapter="2" style="text-decoration:none;color:inherit;display:block">
+      <p class="small muted" style="margin:0 0 4px">2장 · 1755 ~ 1840년대 · 약 4분</p>
+      <h3 style="margin:0 0 6px">오차와 최소제곱</h3>
+      <p class="small" style="margin:0;color:var(--ink-mid)">오차를 없애려는 노력 대신 오차를 모형화하려는 발상의 전환에서 근대 추정 이론이 나왔다.</p>
+      <p class="small muted" style="margin:10px 0 0">연결된 저작 3편<span data-rec hidden></span></p>
+    </a>
+    <a class="card" href="03-society.html" data-chapter="3" style="text-decoration:none;color:inherit;display:block">
+      <p class="small muted" style="margin:0 0 4px">3장 · 1786 ~ 1880년대 · 약 4분</p>
+      <h3 style="margin:0 0 6px">사회를 측정하다</h3>
+      <p class="small" style="margin:0;color:var(--ink-mid)">이 시기에 통계는 두 가지를 얻었다. 사회를 설명하겠다는 야심과, 설득을 위한 시각 언어다.</p>
+      <p class="small muted" style="margin:10px 0 0">연결된 저작 4편<span data-rec hidden></span></p>
+    </a>
+    <a class="card" href="04-three-waves.html" data-chapter="4" style="text-decoration:none;color:inherit;display:block">
+      <p class="small muted" style="margin:0 0 4px">4장 · 1880년대 ~ 1950년대 · 약 5분</p>
+      <h3 style="margin:0 0 6px">현대 통계학의 3파</h3>
+      <p class="small" style="margin:0;color:var(--ink-mid)">세 번의 물결을 거치며 오늘날 교과서에 실린 거의 모든 개념이 이 시기에 만들어졌다.</p>
+      <p class="small muted" style="margin:10px 0 0">연결된 저작 23편<span data-rec hidden></span></p>
+    </a>
+    <a class="card" href="05-computation.html" data-chapter="5" style="text-decoration:none;color:inherit;display:block">
+      <p class="small muted" style="margin:0 0 4px">5장 · 1950년대 ~ 1990년대 · 약 6분</p>
+      <h3 style="margin:0 0 6px">계산·비모수·베이즈의 부흥</h3>
+      <p class="small" style="margin:0;color:var(--ink-mid)">이론으로 풀 수 없던 문제를 계산이 풀기 시작하자, 오래 밀려나 있던 베이즈가 돌아왔다.</p>
+      <p class="small muted" style="margin:10px 0 0">연결된 저작 32편<span data-rec hidden></span></p>
+    </a>
+    <a class="card" href="06-data-science.html" data-chapter="6" style="text-decoration:none;color:inherit;display:block">
+      <p class="small muted" style="margin:0 0 4px">6장 · 1984 ~ 2015 · 약 6분</p>
+      <h3 style="margin:0 0 6px">통계적 학습과 데이터과학</h3>
+      <p class="small" style="margin:0;color:var(--ink-mid)">설명하는 모형과 맞히는 알고리즘 사이의 긴장이 오늘날 데이터 과학의 지형을 만들었다.</p>
+      <p class="small muted" style="margin:10px 0 0">연결된 저작 18편<span data-rec hidden></span></p>
+    </a>
+    <a class="card" href="07-epilogue.html" data-chapter="7" style="text-decoration:none;color:inherit;display:block">
+      <p class="small muted" style="margin:0 0 4px">7장 · 2015 ~ · 약 3분</p>
+      <h3 style="margin:0 0 6px">에필로그 — 2015년 이후, 남은 질문</h3>
+      <p class="small" style="margin:0;color:var(--ink-mid)">방법이 늘어날수록 '이 수치를 믿어도 되는가'라는 오래된 질문이 더 중요해졌다.</p>
+      <p class="small muted" style="margin:10px 0 0">연결된 저작 0편<span data-rec hidden></span></p>
+    </a>
+  </div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>통계학의 역사 — 1654 ~ 2015 · 저작 86편 · 인물 72종<br>
+자료: 통계학사 타임라인 자료집 및 Wikipedia 『History of statistics』 ·
+<a href="../appendix.html">출처와 제작 노트</a></p>
+</div></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/site.js"></script>
+<script>
+(function(){
+ var SH=window.SH;
+ var btn=document.getElementById('btn-summary'), box=document.getElementById('summary-mode');
+ btn.addEventListener('click',function(){
+   var on=box.hidden; box.hidden=!on; btn.setAttribute('aria-expanded',on?'true':'false');
+   btn.textContent=on?'요약 접기':'요약만 훑기';
+ });
+ if(SH.state.field){
+   var f=SH.fieldByKey[SH.state.field];
+   document.querySelectorAll('[data-chapter]').forEach(function(card){
+     var n=parseInt(card.getAttribute('data-chapter'),10);
+     if(f.chapters.indexOf(n)>=0){
+       var tag=card.querySelector('[data-rec]');
+       tag.hidden=false;
+       tag.innerHTML=' · <b style="color:var(--f-'+f.slug+')">'+SH.esc(f.key)+' 추천</b>';
+       card.style.borderColor='var(--f-'+f.slug+')';
+     }
+   });
+ }
+})();
+</script>
+</body>
+</html>
